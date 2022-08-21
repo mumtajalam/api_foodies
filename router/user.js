@@ -34,6 +34,7 @@ router.get("/alluser", async (req, res) => {
 router.post("/login", async (req, res) => {
   const tempUsername = req.body.username;
   const temopassword = req.body.password;
+  console.log(tempUsername, temopassword);
   try {
     const response = await User.find({
       username: tempUsername,
@@ -41,10 +42,13 @@ router.post("/login", async (req, res) => {
     });
 
     if (response.length === 0) {
+      console.log("console1");
       res.status(422).json("user not found");
     } else if (response.length === 1) {
+      console.log("console2");
       res.status(200).json(response[0]);
     } else {
+      console.log("console3");
       res.status(422).json("error in login, please contact customer care");
     }
   } catch (err) {

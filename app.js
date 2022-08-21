@@ -27,4 +27,4 @@ mongoose.connect(
     console.log(colors.yellow("MongoDB connected..."));
   }
 );
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
