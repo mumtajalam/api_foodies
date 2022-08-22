@@ -21,18 +21,18 @@ app.use("/restaurants", restaurantRoute);
 app.use("/menu", menuRoute);
 app.use("/user", userRoute);
 
-mongoose.connect(
-  "mongodb+srv://mumtajalam21:3qqVdwxkDMbSfJc@cluster0.fmfryr3.mongodb.net/test?retryWrites=true&w=majority",
-  () => {
-    console.log(colors.yellow("MongoDB connected..."));
-  }
-);
-
 // mongoose.connect(
-//   "mongodb+srv://Suvro96:Suvro_96@cluster0.uq4uv.mongodb.net/foodmart?retryWrites=true&w=majority",
+//   "mongodb+srv://mumtajalam21:3qqVdwxkDMbSfJc@cluster0.fmfryr3.mongodb.net/test?retryWrites=true&w=majority",
 //   () => {
-//     console.log("mogoDb connected...");
+//     console.log(colors.yellow("MongoDB connected..."));
 //   }
 // );
+
+mongoose.connect(
+  "mongodb+srv://Suvro96:Suvro_96@cluster0.uq4uv.mongodb.net/foodmart?retryWrites=true&w=majority",
+  () => {
+    console.log("mogoDb connected...");
+  }
+);
 
 app.listen(process.env.PORT || 4000);
