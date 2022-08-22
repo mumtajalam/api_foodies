@@ -2,7 +2,7 @@ const express = require("express");
 const Menu = require("../models/Menu");
 
 const router = express.Router();
-
+//http://localhost:4000/restaurants/resid
 router.get("/:restid", async (req, res) => {
   try {
     const tempid = req.params.restid;

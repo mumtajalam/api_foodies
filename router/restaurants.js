@@ -40,7 +40,7 @@ router.get("/search/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+//http://localhost:4000/restaurants
 router.get("/", async (req, res) => {
   try {
     // const city = req.query.city;
