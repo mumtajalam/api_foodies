@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
 app.use("/restaurants", restaurantRoute);
 app.use("/menu", menuRoute);
 app.use("/user", userRoute);
-
 mongoose.connect(
   "mongodb+srv://mumtajalam21:3qqVdwxkDMbSfJc@cluster0.fmfryr3.mongodb.net/test?retryWrites=true&w=majority",
   () => {

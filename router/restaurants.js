@@ -40,6 +40,7 @@ router.get("/search/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 //http://localhost:4000/restaurants
 router.get("/", async (req, res) => {
   try {
@@ -53,7 +54,7 @@ router.get("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+//http://localhost:4000/restaurants
 router.post("/", async (req, res) => {
   try {
     const tempRestaurant = new Restaurant({
@@ -70,6 +71,52 @@ router.post("/", async (req, res) => {
     //database operation
     const response = await tempRestaurant.save();
     res.status(201).json(response);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// //http://localhost:4000/menu
+// router.post("/", async (req, res) => {
+//   try {
+//     const tempMenu = new Menu({
+//       rest_id: req.body.rest_id,
+//       food_id: req.body.food_id,
+//       food_name: req.body.food_name,
+//       food_type: req.body.food_type,
+//       food_category: req.body.food_category,
+//       image: req.body.image,
+//       price: req.body.price,
+//       description: req.body.description,
+//     });
+//     //database operation
+//     const response = await tempMenu.save();
+//     res.status(201).json(response);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
+//http://localhost:4000/restaurants/update
+router.put("/update", async (req, res) => {
+  try {
+    const tempRestaurant = {
+      rest_id: req.body.rest_id,
+      rest_name: req.body.rest_name,
+      location: req.body.location.toLowerCase(),
+      category: req.body.category,
+      image: req.body.image,
+      image2: req.body.image2,
+      image3: req.body.image3,
+      image4: req.body.image4,
+      image5: req.body.image5,
+    };
+    const response = await Restaurant.findOneAndUpdate(
+      { rest_id: tempRestaurant.rest_id },
+      tempRestaurant,
+      { new: true }
+    );
+    res.status(200).json(response);
   } catch (err) {
     res.status(400).json(err);
   }
