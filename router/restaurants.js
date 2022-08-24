@@ -3,16 +3,6 @@ const Restaurant = require("../models/Restaurant");
 
 const router = express.Router();
 
-// router.get('/', (req, res) => {
-//     try{
-//         console.log('restaurants  started...');
-//         res.send('restaurants  app running.')
-//     }
-//     catch{
-
-//     }
-// })
-
 // http://localhost:4000/restaurants/delhi
 
 router.get("/:city", async (req, res) => {
@@ -75,27 +65,6 @@ router.post("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-// //http://localhost:4000/menu
-// router.post("/", async (req, res) => {
-//   try {
-//     const tempMenu = new Menu({
-//       rest_id: req.body.rest_id,
-//       food_id: req.body.food_id,
-//       food_name: req.body.food_name,
-//       food_type: req.body.food_type,
-//       food_category: req.body.food_category,
-//       image: req.body.image,
-//       price: req.body.price,
-//       description: req.body.description,
-//     });
-//     //database operation
-//     const response = await tempMenu.save();
-//     res.status(201).json(response);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
 
 //http://localhost:4000/restaurants/update
 router.put("/update", async (req, res) => {
