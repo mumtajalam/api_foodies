@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const colors = require("colors");
+const { default: mongoose } = require("mongoose");
 const restaurantRoute = require("./router/restaurants");
 const menuRoute = require("./router/menu");
 const userRoute = require("./router/user");
-const { default: mongoose } = require("mongoose");
+const ordersRoute = require("./router/orders");
 
 app.use(express.json());
 app.use(cors());
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 app.use("/restaurants", restaurantRoute);
 app.use("/menu", menuRoute);
 app.use("/user", userRoute);
+app.use("/orders", ordersRoute);
 mongoose.connect(
   "mongodb+srv://mumtajalam21:3qqVdwxkDMbSfJc@cluster0.fmfryr3.mongodb.net/test?retryWrites=true&w=majority",
   () => {
