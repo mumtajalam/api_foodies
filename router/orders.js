@@ -15,6 +15,15 @@ router.post("/placeorder", async (req, res) => {
       amount: req.body.amount,
     });
     const response = await tempOrder.save();
+    //store order details in loop - req.body.foodItems
+    // const tempOrder = new OrderDetails({
+    //     orderid: response.orderid,
+    //     food_id: req.body,
+    //     food_name: req.body,
+    //     quantity: req.body,
+    //     price: req.body
+    // })
+    // const response = await tempOrder.save();
     res.status(201).json(response);
   } catch (err) {
     res.status(400).json(err);
